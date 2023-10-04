@@ -1,0 +1,150 @@
+{
+  "events": [
+    {
+      "id": "2",
+      "title": "Mediagenix holiday",
+      "type": "holiday",
+      "startDate": "2022-04-04",
+      "endDate": "2022-04-05",
+      "description": "Celebrating Mediagenix"
+    },
+    {
+      "id": "3",
+      "title": "Tech Conference 2022",
+      "type": "conference",
+      "startDate": "2022-09-15",
+      "endDate": "2022-09-17",
+      "description": "A three-day technology conference featuring keynote speakers, workshops, and networking opportunities."
+    },
+    {
+      "id": "4",
+      "title": "Summer Vacation",
+      "type": "vacation",
+      "startDate": "2022-07-10",
+      "endDate": "2022-07-24",
+      "description": "A two-week summer vacation trip to explore exotic destinations and relax by the beach."
+    },
+    {
+      "id": "5",
+      "title": "Company Retreat",
+      "type": "retreat",
+      "startDate": "2022-03-20",
+      "endDate": "2022-03-23",
+      "description": "An annual company retreat for team-building and strategic planning."
+    },
+    {
+      "id": "6",
+      "title": "Family Reunion",
+      "type": "family",
+      "startDate": "2022-06-15",
+      "endDate": "2022-06-18",
+      "description": "Gathering with extended family for a reunion and bonding time."
+    },
+    {
+      "id": "7",
+      "title": "Product Launch",
+      "type": "launch",
+      "startDate": "2022-11-10",
+      "endDate": "2022-11-10",
+      "description": "Launch event for the new product line."
+    },
+    {
+      "id": "11",
+      "title": "Annual Charity Gala",
+      "type": "charity",
+      "startDate": "2022-12-15",
+      "endDate": "2022-12-15",
+      "description": "A fundraising gala to support charitable causes."
+    },
+    {
+      "id": "12",
+      "title": "Winter Break",
+      "type": "holiday",
+      "startDate": "2022-12-20",
+      "endDate": "2023-01-03",
+      "description": "Winter holidays for relaxation and celebrations."
+    },
+    {
+      "id": "13",
+      "title": "Product Workshop",
+      "type": "workshop",
+      "startDate": "2022-10-12",
+      "endDate": "2022-10-13",
+      "description": "A hands-on workshop to learn about new products and features."
+    },
+    {
+      "id": "14",
+      "title": "Art Exhibition Opening",
+      "type": "exhibition",
+      "startDate": "2022-07-08",
+      "endDate": "2022-07-08",
+      "description": "The grand opening of an art exhibition showcasing local artists."
+    },
+    {
+      "id": "15",
+      "title": "Summer Camp",
+      "type": "camp",
+      "startDate": "2022-06-25",
+      "endDate": "2022-07-02"
+    },
+    {
+      "id": "18",
+      "title": "Science Fair",
+      "type": "fair",
+      "startDate": "2022-04-15",
+      "endDate": "2022-04-16"
+    },
+    {
+      "id": "19",
+      "title": "Community Cleanup Day",
+      "type": "community",
+      "startDate": "2022-03-05",
+      "endDate": "2022-03-05",
+      "description": "A day dedicated to cleaning up the local community and promoting environmental awareness."
+    },
+    {
+      "id": "20",
+      "title": "Summer Music Festival",
+      "type": "festival",
+      "startDate": "2022-08-18",
+      "endDate": "2022-08-21",
+      "description": "A multi-day music festival featuring a lineup of popular artists and bands."
+    }
+  ],
+  "schema": [
+    {
+      "name": "title",
+      "label": "Title",
+      "component": "text",
+      "required": true
+    },
+    {
+      "name": "type",
+      "component": "select",
+      "label": "Type",
+      "options": [
+        {
+          "label": "Generic",
+          "value": "generic"
+        },
+        {
+          "label": "Holiday",
+          "value": "holiday"
+        }
+      ]
+    },
+    {
+      "name": [
+        "startDate",
+        "endDate"
+      ],
+      "component": "range_picker",
+      "label": "Date"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "component": "textarea"
+    }
+  ]
+}
