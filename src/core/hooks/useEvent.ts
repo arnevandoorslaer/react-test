@@ -1,14 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { getEvents, addEvent, deleteEvent } from '../api/events';
+import { getEvents, addOrUpdateEvent, deleteEvent } from '../api/events';
 
 export function useEvents() {
   return useQuery({ queryKey: ['events'], queryFn: getEvents });
 }
 
-export function createEvent() {
+export function createOrUpdateEvent() {
   const queryClient = useQueryClient();
 
-  return useMutation(addEvent, {
+  return useMutation(addOrUpdateEvent, {
     onSuccess: () => {
       const message = 'success';
       console.log(message);

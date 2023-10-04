@@ -4,7 +4,7 @@ import { useColumns } from './core/hooks/useColumn';
 import { useEvents } from './core/hooks/useEvent';
 import { useFormComponents } from './core/hooks/useFormComponent';
 import { useState, useEffect } from 'react';
-import { ActionComponent, FormComponent } from './core/components/index';
+import { FormComponent, FormCreateComponent, FormUpdateComponent } from './core/components/index';
 
 function App() {
   const columnInfo = useColumns();
@@ -14,9 +14,12 @@ function App() {
   const { Search } = Input;
 
   const [events, setEvents] = useState([]);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
 
-  const [visible, setVisible] = useState(false);
+  const [selected, setSelected] = useState();
+
+  const [isCreateVisible, setCreateVisible] = useState(false);
+  const [isUpdateVisible, setUpdateVisible] = useState(false);
 
   useEffect(() => {
     setEvents(eventInfo.data);
@@ -38,7 +41,27 @@ function App() {
     return <Spin spinning></Spin>;
   }
 
-  const columns = [...columnInfo.data, { title: 'Action', key: 'operation', render: (_, record) => <ActionComponent record={record} /> }];
+  if (columnInfo.isError || eventInfo.isError) {
+    return <>Something went wrong...</>;
+  }
+
+  const columns = [
+    ...columnInfo.data,
+    {
+      title: 'Actions',
+      key: 'operation',
+      render: (_, event) => (
+        <a
+          onClick={() => {
+            setUpdateVisible(true);
+            setSelected(event);
+          }}
+        >
+          ...
+        </a>
+      ),
+    },
+  ];
 
   return (
     <>
@@ -47,15 +70,16 @@ function App() {
           <Search onSearch={onSearch} allowClear placeholder={'Search events'} />
         </Col>
         <Col span={4}>
-          <Button type='primary' style={{ background: 'black', borderRadius: 1 }} onClick={() => setVisible(true)}>
+          <Button type='primary' style={{ background: 'black', borderRadius: 1 }} onClick={() => setCreateVisible(true)}>
             Create event
           </Button>
         </Col>
       </Row>
       <Divider></Divider>
 
-      <Table dataSource={events} columns={columns} pagination={false} />
-      <FormComponent columns={formInfo.data} visible={visible} setVisible={setVisible} />
+      <Table dataSource={events} columns={columns} pagination={false} rowKey={(record) => record.id} />
+      {isCreateVisible ? <FormCreateComponent columns={formInfo.data} setVisible={setCreateVisible} /> : <></>}
+      {isUpdateVisible ? <FormUpdateComponent columns={formInfo.data} setVisible={setUpdateVisible} selected={selected} /> : <></>}
     </>
   );
 }

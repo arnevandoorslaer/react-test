@@ -6,9 +6,13 @@ export const getEvents = async (filter?: string) => {
   return data.map((event) => ({ ...event, key: event.id, dataIndex: event.id }));
 };
 
-export const addEvent = async (event: Event) => {
-  axios.post<Event>(`http://localhost:3002/events/`, event);
+export const addOrUpdateEvent = async (event: Event) => {
+  if (!event.id) {
+    await axios.post<Event>(`http://localhost:3002/events/`, event);
+  } else {
+    await axios.put<Event>(`http://localhost:3002/events/${event.id}`, event);
+  }
 };
 export const deleteEvent = async (id: number) => {
-  axios.delete<Event>(`http://localhost:3002/events/${id}`);
+  await axios.delete<Event>(`http://localhost:3002/events/${id}`);
 };

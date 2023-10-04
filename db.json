@@ -1,30 +1,6 @@
 {
   "events": [
     {
-      "id": "2",
-      "title": "Mediagenix holiday",
-      "type": "holiday",
-      "startDate": "2022-04-04",
-      "endDate": "2022-04-05",
-      "description": "Celebrating Mediagenix"
-    },
-    {
-      "id": "3",
-      "title": "Tech Conference 2022",
-      "type": "conference",
-      "startDate": "2022-09-15",
-      "endDate": "2022-09-17",
-      "description": "A three-day technology conference featuring keynote speakers, workshops, and networking opportunities."
-    },
-    {
-      "id": "4",
-      "title": "Summer Vacation",
-      "type": "vacation",
-      "startDate": "2022-07-10",
-      "endDate": "2022-07-24",
-      "description": "A two-week summer vacation trip to explore exotic destinations and relax by the beach."
-    },
-    {
       "id": "5",
       "title": "Company Retreat",
       "type": "retreat",
@@ -109,6 +85,30 @@
       "startDate": "2022-08-18",
       "endDate": "2022-08-21",
       "description": "A multi-day music festival featuring a lineup of popular artists and bands."
+    },
+    {
+      "title": "test",
+      "type": "holiday",
+      "description": "oke zodus",
+      "startDate": "2023-10-10",
+      "endDate": "2023-10-12",
+      "id": "0pniDJa"
+    },
+    {
+      "title": "Testje",
+      "type": "generic",
+      "description": "dwasdf",
+      "startDate": "2023-10-12",
+      "endDate": "2023-10-13",
+      "id": "F3dnl8O"
+    },
+    {
+      "title": "tset",
+      "type": "holiday",
+      "description": "t",
+      "startDate": "2023-10-03",
+      "endDate": "2023-10-05",
+      "id": "11Gpmte"
     }
   ],
   "schema": [

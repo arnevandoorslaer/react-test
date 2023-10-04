@@ -1,16 +1,16 @@
 import { Input, Form, Select, DatePicker } from 'antd';
-import { FormComponentType } from '../types/form-component.type';
+import { FormComponentType } from '../../types/form-component.type';
 
-function FormFieldComponent({ record }) {
-  const component = getComponent(record.component, record);
+function FormFieldComponent({ column }) {
+  const component = getComponent(column.component, column);
   return (
     <Form.Item
-      name={record.component === 'range_picker' ? 'dates' : record.name}
-      label={record.label}
-      key={record.key}
+      name={column.component === 'range_picker' ? 'dates' : column.name}
+      label={column.label}
+      key={column.key}
       rules={[
         {
-          required: record.required,
+          required: column.required,
           message: 'Please input the title of collection!',
         },
       ]}
@@ -20,7 +20,7 @@ function FormFieldComponent({ record }) {
   );
 }
 
-function getComponent(component: string, record: FormComponentType) {
+function getComponent(component: string, column: FormComponentType) {
   const { RangePicker } = DatePicker;
   const { Option } = Select;
 
@@ -30,7 +30,7 @@ function getComponent(component: string, record: FormComponentType) {
     case 'select':
       input = (
         <Select>
-          {record.options.map((option) => (
+          {column.options.map((option) => (
             <Option value={option.value} label={option.label} key={option.label}>
               <>{option.label}</>
             </Option>
@@ -39,7 +39,7 @@ function getComponent(component: string, record: FormComponentType) {
       );
       break;
     case 'range_picker':
-      input = <RangePicker />;
+      input = <RangePicker format={'YYYY-MM-DD'} />;
       break;
     case 'textarea':
       input = <Input.TextArea />;
