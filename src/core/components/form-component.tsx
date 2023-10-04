@@ -6,7 +6,7 @@ import { FormComponentType } from '../types/form-component.type';
 import { Event } from '../types/event.type';
 import { parseDateArray } from '../utils/dateParser';
 
-function FormComponent({ columns, visible, setVisible }) {
+function FormComponent({ columns, visible, setVisible, event }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [form] = Form.useForm();
