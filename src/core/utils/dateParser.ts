@@ -1,3 +1,4 @@
+import * as dayjs from 'dayjs';
 import moment from 'moment';
 
 export const parseMomentArray = (dates: moment[]) => {
@@ -13,5 +14,5 @@ const formatToIso = (moment: moment) => {
 };
 
 const formatToMoment = (date: string) => {
-  return moment(date, 'YYYY-MM-DD');
+  return dayjs(date);
 };

@@ -1,20 +1,20 @@
 {
   "events": [
     {
-      "id": "5",
-      "title": "Company Retreat",
+      "title": "Company Retrea",
       "type": "retreat",
-      "startDate": "2022-03-20",
-      "endDate": "2022-03-23",
-      "description": "An annual company retreat for team-building and strategic planning."
+      "description": "An annual company retreat for team-building and strategic planning.",
+      "startDate": "2023-10-05",
+      "endDate": "2023-10-05",
+      "id": "5"
     },
     {
-      "id": "6",
       "title": "Family Reunion",
       "type": "family",
-      "startDate": "2022-06-15",
-      "endDate": "2022-06-18",
-      "description": "Gathering with extended family for a reunion and bonding time."
+      "description": "Gathering with extended family for a reunion and bonding time.",
+      "startDate": "2022-06-16",
+      "endDate": "2022-06-19",
+      "id": "6"
     },
     {
       "id": "7",
@@ -57,11 +57,11 @@
       "description": "The grand opening of an art exhibition showcasing local artists."
     },
     {
-      "id": "15",
       "title": "Summer Camp",
       "type": "camp",
-      "startDate": "2022-06-25",
-      "endDate": "2022-07-02"
+      "startDate": "2023-10-05",
+      "endDate": "2023-10-05",
+      "id": "15"
     },
     {
       "id": "18",
@@ -85,30 +85,6 @@
       "startDate": "2022-08-18",
       "endDate": "2022-08-21",
       "description": "A multi-day music festival featuring a lineup of popular artists and bands."
-    },
-    {
-      "title": "test",
-      "type": "holiday",
-      "description": "oke zodus",
-      "startDate": "2023-10-10",
-      "endDate": "2023-10-12",
-      "id": "0pniDJa"
-    },
-    {
-      "title": "Testje",
-      "type": "generic",
-      "description": "dwasdf",
-      "startDate": "2023-10-12",
-      "endDate": "2023-10-13",
-      "id": "F3dnl8O"
-    },
-    {
-      "title": "tset",
-      "type": "holiday",
-      "description": "t",
-      "startDate": "2023-10-03",
-      "endDate": "2023-10-05",
-      "id": "11Gpmte"
     }
   ],
   "schema": [

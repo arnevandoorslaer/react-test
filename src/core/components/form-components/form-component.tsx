@@ -31,7 +31,7 @@ function FormComponent({ columns, setVisible, event, title, okText, cancelText, 
   const handleSubmit = (values: Event) => {
     if (values) {
       const [startDate, endDate] = parseMomentArray(values.dates);
-      const event = { ...values, startDate, endDate, id: prefilled.id || undefined };
+      const event = { ...values, startDate, endDate, id: prefilled?.id || undefined };
       delete event.dates;
       mutateCreateOrUpdate(event);
     }

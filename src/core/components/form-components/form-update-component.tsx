@@ -5,9 +5,17 @@ import { removeEvent, createOrUpdateEvent } from '../../hooks/useEvent';
 import { Button } from 'antd';
 
 function FormUpdateComponent({ columns, setVisible, selected, setSelected }) {
-  // ...parseToMoment([selected.startDate, selected.endDate])
-
-  return <FormComponent columns={columns} setVisible={setVisible} title='UPDATE EVENT' okText='Update' cancelText='Cancel' prefilled={{ ...selected, dates: [] }} showDelete={true} />;
+  return (
+    <FormComponent
+      columns={columns}
+      setVisible={setVisible}
+      title='UPDATE EVENT'
+      okText='Update'
+      cancelText='Cancel'
+      prefilled={{ ...selected, dates: parseToMoment([selected.startDate, selected.endDate]) }}
+      showDelete={true}
+    />
+  );
 }
 
 export default FormUpdateComponent;
