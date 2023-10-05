@@ -10,15 +10,11 @@ function HeaderComponent() {
   const [, setSearch] = useAtom(searchAtom);
   const [, setCreateVisible] = useAtom(createVisibleAtom);
 
-  const onSearch = (value: string) => {
-    setSearch(value);
-  };
-
   return (
     <>
       <Row justify='space-between'>
         <Col span={5}>
-          <Search onSearch={onSearch} allowClear placeholder={'Search events'} />
+          <Search onSearch={setSearch} allowClear placeholder={'Search events'} />
         </Col>
         <Col span={4}>
           <Button type='primary' style={{ background: 'black', borderRadius: 1 }} onClick={() => setCreateVisible(true)}>
