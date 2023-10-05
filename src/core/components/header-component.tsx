@@ -12,7 +12,7 @@ function HeaderComponent({ setSearch, setCreateVisible }) {
   return (
     <>
       <Row justify='space-between'>
-        <Col span={8}>
+        <Col span={5}>
           <Search onSearch={onSearch} allowClear placeholder={'Search events'} />
         </Col>
         <Col span={4}>
