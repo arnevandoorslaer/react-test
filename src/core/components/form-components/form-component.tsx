@@ -14,7 +14,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
 
   const handleDelete = () => {
     mutateRemove(prefilled.id);
-    openNotification('Succesfully deleted', prefilled.title);
+    openNotification('Successfully deleted', prefilled.title);
     setVisible(false);
   };
 
@@ -37,13 +37,12 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
       const [startDate, endDate] = parseMomentArray(values.dates);
       const event = { ...values, startDate, endDate, id: prefilled?.id || undefined };
       delete event.dates;
-      if (prefilled?.id) {
-        openNotification('Succesfully updated', values.title);
-      } else {
-        openNotification('Succesfully created', values.title);
-      }
-
       mutateCreateOrUpdate(event);
+      if (prefilled?.id) {
+        openNotification('Successfully updated', values.title);
+      } else {
+        openNotification('Successfully created', values.title);
+      }
     }
   };
 

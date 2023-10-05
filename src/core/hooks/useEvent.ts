@@ -9,10 +9,6 @@ export function createOrUpdateEvent() {
   const queryClient = useQueryClient();
 
   return useMutation(addOrUpdateEvent, {
-    onSuccess: () => {
-      const message = 'success';
-      console.log(message);
-    },
     onError: () => {
       console.log('there was an error');
     },
@@ -26,10 +22,6 @@ export function removeEvent() {
   const queryClient = useQueryClient();
 
   return useMutation(deleteEvent, {
-    onSuccess: () => {
-      const message = 'success';
-      console.log(message);
-    },
     onError: () => {
       console.log('there was an error');
     },
