@@ -1,14 +1,6 @@
 {
   "events": [
     {
-      "title": "Company Retrea",
-      "type": "retreat",
-      "description": "An annual company retreat for team-building and strategic planning.",
-      "startDate": "2023-10-05",
-      "endDate": "2023-10-05",
-      "id": "5"
-    },
-    {
       "title": "Family Reunion",
       "type": "family",
       "description": "Gathering with extended family for a reunion and bonding time.",
@@ -25,12 +17,12 @@
       "description": "Launch event for the new product line."
     },
     {
-      "id": "11",
       "title": "Annual Charity Gala",
       "type": "charity",
+      "description": "A fundraising gala to support charitable causes.",
       "startDate": "2022-12-15",
       "endDate": "2022-12-15",
-      "description": "A fundraising gala to support charitable causes."
+      "id": "11"
     },
     {
       "id": "12",
@@ -79,12 +71,11 @@
       "description": "A day dedicated to cleaning up the local community and promoting environmental awareness."
     },
     {
-      "id": "20",
-      "title": "Summer Music Festival",
-      "type": "festival",
-      "startDate": "2022-08-18",
-      "endDate": "2022-08-21",
-      "description": "A multi-day music festival featuring a lineup of popular artists and bands."
+      "title": "Event Test",
+      "type": "holiday",
+      "startDate": "2023-10-04",
+      "endDate": "2023-10-06",
+      "id": "8Jyvf5h"
     }
   ],
   "schema": [
