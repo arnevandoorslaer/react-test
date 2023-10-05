@@ -4,3 +4,10 @@
   text-align: center;
   margin: 0 auto;
 }
+
+.ant-input-search-button {
+  background-color: black;
+}
+.ant-input-search-button svg {
+  color: white;
+}
