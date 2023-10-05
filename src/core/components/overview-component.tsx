@@ -1,4 +1,4 @@
-import { Spin, Table } from 'antd';
+import { Spin, Table, Tag } from 'antd';
 
 import React, { useEffect, useState } from 'react';
 import { useColumns } from '../hooks/useColumn';
@@ -12,9 +12,8 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
 
   const [events, setEvents] = useState();
 
-  const columns = !columnInfo.data
-    ? []
-    : [
+  const columns = columnInfo.data
+    ? [
         ...columnInfo.data,
         {
           title: 'Actions',
@@ -30,7 +29,23 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
             </a>
           ),
         },
-      ];
+      ].map((column) => {
+        if (column.title === 'Type') {
+          return {
+            ...column,
+            render: (tag: string) => {
+              let color = tag === 'holiday' ? 'geekblue' : 'green';
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            },
+          };
+        }
+        return column;
+      })
+    : [];
 
   useEffect(() => {
     setEvents(eventInfo.data);
