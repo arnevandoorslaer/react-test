@@ -2,19 +2,16 @@ import './App.css';
 import { Divider, notification } from 'antd';
 
 import { useFormComponents } from './core/hooks/useFormComponent';
-import { useState } from 'react';
 import { FormCreateComponent, FormUpdateComponent, HeaderComponent, OverviewComponent } from './core/components/';
 import React from 'react';
+import { createVisibleAtom, updateVisibleAtom } from './core/store/store';
+import { useAtom } from 'jotai';
 
 function App() {
   const formInfo = useFormComponents();
 
-  const [search, setSearch] = useState('');
-
-  const [selected, setSelected] = useState();
-
-  const [isCreateVisible, setCreateVisible] = useState(false);
-  const [isUpdateVisible, setUpdateVisible] = useState(false);
+  const [isCreateVisible] = useAtom(createVisibleAtom);
+  const [isUpdateVisible] = useAtom(updateVisibleAtom);
 
   const [api, contextHolder] = notification.useNotification();
 
@@ -25,11 +22,11 @@ function App() {
   return (
     <>
       {contextHolder}
-      <HeaderComponent setCreateVisible={setCreateVisible} setSearch={setSearch}></HeaderComponent>
+      <HeaderComponent></HeaderComponent>
       <Divider></Divider>
-      <OverviewComponent setSelected={setSelected} setUpdateVisible={setUpdateVisible} search={search}></OverviewComponent>
-      {isCreateVisible ? <FormCreateComponent columns={formInfo.data} setVisible={setCreateVisible} openNotification={openNotification} /> : <></>}
-      {isUpdateVisible ? <FormUpdateComponent columns={formInfo.data} setVisible={setUpdateVisible} selected={selected} openNotification={openNotification} /> : <></>}
+      <OverviewComponent></OverviewComponent>
+      {isCreateVisible ? <FormCreateComponent columns={formInfo.data} openNotification={openNotification} /> : <></>}
+      {isUpdateVisible ? <FormUpdateComponent columns={formInfo.data} openNotification={openNotification} /> : <></>}
     </>
   );
 }

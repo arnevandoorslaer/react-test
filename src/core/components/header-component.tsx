@@ -1,9 +1,14 @@
 import { Input, Button, Row, Col } from 'antd';
+import { useAtom } from 'jotai';
 
 import React from 'react';
+import { createVisibleAtom, searchAtom } from '../store/store';
 
-function HeaderComponent({ setSearch, setCreateVisible }) {
+function HeaderComponent() {
   const { Search } = Input;
+
+  const [, setSearch] = useAtom(searchAtom);
+  const [, setCreateVisible] = useAtom(createVisibleAtom);
 
   const onSearch = (value: string) => {
     setSearch(value);

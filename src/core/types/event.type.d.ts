@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export type Event = {
   id?: string;
   title: string;
@@ -7,5 +9,5 @@ export type Event = {
   description?: string;
   dataIndex?: string;
   key?: string;
-  dates?: moment.Moment[];
+  dates?: dayjs.Dayjs[] | moment.Moment[];
 };

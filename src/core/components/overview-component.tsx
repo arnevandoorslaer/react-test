@@ -5,10 +5,17 @@ import { useColumns } from '../hooks/useColumn';
 import { useEvents } from '../hooks/useEvent';
 
 import { Event } from '../types/event.type';
+import { useAtom } from 'jotai';
+import { searchAtom, selectedEventAtom, updateVisibleAtom } from '../store/store';
 
-function OverviewComponent({ setUpdateVisible, setSelected, search }) {
+function OverviewComponent() {
   const columnInfo = useColumns();
   const eventInfo = useEvents();
+
+  const [, setSelected] = useAtom(selectedEventAtom);
+  const [, setUpdateVisible] = useAtom(updateVisibleAtom);
+
+  const [search] = useAtom(searchAtom);
 
   const columns = columnInfo.data
     ? [
@@ -20,7 +27,7 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
             <a
               onClick={() => {
                 setUpdateVisible(true);
-                setSelected(event);
+                setSelected({ event });
               }}
             >
               ...

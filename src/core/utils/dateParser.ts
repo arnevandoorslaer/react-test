@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import moment from 'moment';
 
-export const parseMomentArray = (dates: moment.Moment[] | undefined) => {
+export const parseMomentArray = (dates: moment.Moment[] | undefined | dayjs.Dayjs[]) => {
   return dates ? dates.map((moment) => formatToIso(moment)) : [];
 };
 
