@@ -52,7 +52,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
     <Modal title={title} okText={okText} open={true} cancelText={cancelText} onOk={handleOk} onCancel={handleCancel}>
       <Form key={title} form={form} layout='vertical' onFinish={handleSubmit} initialValues={prefilled || undefined} children={fields}></Form>
       {showDelete ? (
-        <Button key='delete' danger onClick={handleDelete}>
+        <Button key='delete' danger onClick={handleDelete} style={{ top: 35 }}>
           Delete
         </Button>
       ) : (

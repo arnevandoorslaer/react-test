@@ -40,7 +40,7 @@ function getComponent(component: string, column: FormComponentType) {
       );
       break;
     case 'range_picker':
-      input = <RangePicker format={'YYYY-MM-DD'} />;
+      input = <RangePicker format={'YYYY-MM-DD'} style={{ width: '100%' }} />;
       break;
     case 'textarea':
       input = <Input.TextArea />;
