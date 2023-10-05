@@ -34,7 +34,7 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
             render: (tag: string) => {
               let color = tag === 'holiday' ? 'geekblue' : 'green';
               return (
-                <Tag color={color} key={tag}>
+                <Tag color={color} key={tag} style={{ width: '100%', textAlign: 'center' }}>
                   {tag.toUpperCase()}
                 </Tag>
               );
