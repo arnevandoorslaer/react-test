@@ -59,9 +59,6 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
     return <>Something went wrong...</>;
   }
 
-  console.log(filterEvents(search, eventInfo.data));
-  console.log(columns);
-
   return (
     <>
       <Table dataSource={filterEvents(search, eventInfo.data)} columns={columns} pagination={false} />
