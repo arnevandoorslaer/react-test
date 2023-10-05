@@ -4,7 +4,9 @@ import { useColumns } from './core/hooks/useColumn';
 import { useEvents } from './core/hooks/useEvent';
 import { useFormComponents } from './core/hooks/useFormComponent';
 import { useState, useEffect } from 'react';
-import { FormComponent, FormCreateComponent, FormUpdateComponent } from './core/components/index';
+import { FormCreateComponent, FormUpdateComponent } from './core/components/index';
+import React from 'react';
+import { Event } from './core/types/event.type';
 
 function App() {
   const columnInfo = useColumns();
@@ -28,12 +30,12 @@ function App() {
   useEffect(() => {
     setEvents(
       search && search.trim() !== ''
-        ? eventInfo.data?.filter((event) => event.title.toLowerCase().includes(search.toLowerCase()) || event.description?.toLowerCase().includes(search.toLowerCase()))
+        ? eventInfo.data?.filter((event: Event) => event.title.toLowerCase().includes(search.toLowerCase()) || event.description?.toLowerCase().includes(search.toLowerCase()))
         : eventInfo.data,
     );
   }, [search, eventInfo.data]);
 
-  const onSearch = (value) => {
+  const onSearch = (value: string) => {
     setSearch(value);
   };
 
@@ -45,27 +47,29 @@ function App() {
     return <>Something went wrong...</>;
   }
 
-  const columns = [
-    ...columnInfo.data,
-    {
-      title: 'Actions',
-      key: 'operation',
-      render: (_, event) => (
-        <a
-          onClick={() => {
-            setUpdateVisible(true);
-            setSelected(event);
-          }}
-        >
-          ...
-        </a>
-      ),
-    },
-  ];
+  const columns = columnInfo.data
+    ? [
+        ...columnInfo.data,
+        {
+          title: 'Actions',
+          key: 'operation',
+          render: (_, event) => (
+            <a
+              onClick={() => {
+                setUpdateVisible(true);
+                setSelected(event);
+              }}
+            >
+              ...
+            </a>
+          ),
+        },
+      ]
+    : [];
 
   return (
     <>
-      <Row justify='space-between' margin={2}>
+      <Row justify='space-between'>
         <Col span={8}>
           <Search onSearch={onSearch} allowClear placeholder={'Search events'} />
         </Col>
@@ -77,7 +81,7 @@ function App() {
       </Row>
       <Divider></Divider>
 
-      <Table dataSource={events} columns={columns} pagination={false} rowKey={(record) => record.id} />
+      <Table dataSource={events} columns={columns} pagination={false} />
       {isCreateVisible ? <FormCreateComponent columns={formInfo.data} setVisible={setCreateVisible} /> : <></>}
       {isUpdateVisible ? <FormUpdateComponent columns={formInfo.data} setVisible={setUpdateVisible} selected={selected} /> : <></>}
     </>

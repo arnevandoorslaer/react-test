@@ -1,8 +1,8 @@
 import FormComponent from './form-component';
-import { Button } from 'antd';
+import React from 'react';
 
 function FormCreateComponent({ columns, setVisible }) {
-  return <FormComponent columns={columns} setVisible={setVisible} title='CREATE EVENT' okText='Create' cancelText='Cancel' showDelete={false} />;
+  return <FormComponent columns={columns} setVisible={setVisible} title='CREATE EVENT' okText='Create' cancelText='Cancel' showDelete={false} prefilled={undefined} />;
 }
 
 export default FormCreateComponent;

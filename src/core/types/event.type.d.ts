@@ -7,5 +7,5 @@ export type Event = {
   description?: string;
   dataIndex?: string;
   key?: string;
-  dates?: Date[];
+  dates?: moment.Moment[];
 };

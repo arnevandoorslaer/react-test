@@ -1,5 +1,6 @@
 import { Input, Form, Select, DatePicker } from 'antd';
 import { FormComponentType } from '../../types/form-component.type';
+import React from 'react';
 
 function FormFieldComponent({ column }) {
   const component = getComponent(column.component, column);
@@ -11,7 +12,7 @@ function FormFieldComponent({ column }) {
       rules={[
         {
           required: column.required,
-          message: 'Please input the title of collection!',
+          message: 'Required',
         },
       ]}
     >

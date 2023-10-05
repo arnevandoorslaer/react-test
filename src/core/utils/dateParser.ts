@@ -1,18 +1,18 @@
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import moment from 'moment';
 
-export const parseMomentArray = (dates: moment[]) => {
-  return dates.map((moment) => formatToIso(moment));
+export const parseMomentArray = (dates: moment.Moment[] | undefined) => {
+  return dates ? dates.map((moment) => formatToIso(moment)) : [];
 };
 
 export const parseToMoment = (dates: string[]) => {
-  return dates.map((date) => formatToMoment(date));
+  return dates ? dates.map((date) => formatToMoment(date)) : [];
 };
 
-const formatToIso = (moment: moment) => {
-  return moment.format('YYYY-MM-DD');
+const formatToIso = (moment: moment.Moment) => {
+  return moment ? moment.format('YYYY-MM-DD') : undefined;
 };
 
 const formatToMoment = (date: string) => {
-  return dayjs(date);
+  return date ? dayjs(date) : undefined;
 };
