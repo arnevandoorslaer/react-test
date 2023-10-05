@@ -90,9 +90,6 @@ jest.mock('antd', () => {
 });
 
 test('Table gets filled with correct data onload', async () => {
-  const [search, setSelected] = React.useState('');
-  const [, setUpdateVisible] = React.useState();
-
   render(<OverviewComponent></OverviewComponent>);
 
   expect(screen.getByTestId('table')).toBeInTheDocument();
