@@ -12,8 +12,9 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
 
   const [events, setEvents] = useState();
 
-  const columns = columnInfo.data
-    ? [
+  const columns = !columnInfo.data
+    ? []
+    : [
         ...columnInfo.data,
         {
           title: 'Actions',
@@ -29,8 +30,7 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
             </a>
           ),
         },
-      ]
-    : [];
+      ];
 
   useEffect(() => {
     setEvents(eventInfo.data);
