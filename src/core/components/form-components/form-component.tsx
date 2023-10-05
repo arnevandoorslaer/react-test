@@ -6,7 +6,7 @@ import { Event } from '../../types/event.type';
 import { parseMomentArray } from '../../utils/dateParser';
 import React from 'react';
 
-function FormComponent({ columns, setVisible, title, okText, cancelText, prefilled, showDelete }) {
+function FormComponent({ columns, setVisible, title, okText, cancelText, prefilled, showDelete, openNotification }) {
   const [form] = Form.useForm();
 
   const { mutate: mutateRemove } = removeEvent();
@@ -14,6 +14,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
 
   const handleDelete = () => {
     mutateRemove(prefilled.id);
+    openNotification('Succesfully deleted', prefilled.title);
     setVisible(false);
   };
 
@@ -27,9 +28,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
         setVisible(false);
         form.submit();
       },
-      (error) => {
-        console.log(error);
-      },
+      () => openNotification('Something went wrong...', 'Fields not validated'),
     );
   };
 
@@ -38,6 +37,12 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
       const [startDate, endDate] = parseMomentArray(values.dates);
       const event = { ...values, startDate, endDate, id: prefilled?.id || undefined };
       delete event.dates;
+      if (prefilled?.id) {
+        openNotification('Succesfully updated', values.title);
+      } else {
+        openNotification('Succesfully created', values.title);
+      }
+
       mutateCreateOrUpdate(event);
     }
   };

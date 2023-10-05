@@ -10,7 +10,7 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
   const columnInfo = useColumns();
   const eventInfo = useEvents();
 
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState();
 
   const columns = columnInfo.data
     ? [
@@ -44,7 +44,7 @@ function OverviewComponent({ setUpdateVisible, setSelected, search }) {
     );
   }, [search, eventInfo.data]);
 
-  if (columnInfo.isLoading || eventInfo.isLoading) {
+  if (columnInfo.isLoading || eventInfo.isLoading || !columns) {
     return <Spin spinning></Spin>;
   }
 
