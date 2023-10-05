@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { OverviewComponent } from '../src/core/components';
 import { createColumns } from '../src/core/api/schema';
 
