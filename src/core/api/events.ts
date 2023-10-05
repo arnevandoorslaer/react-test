@@ -13,6 +13,6 @@ export const addOrUpdateEvent = async (event: Event) => {
     await axios.put<Event>(`http://localhost:3002/events/${event.id}`, event);
   }
 };
-export const deleteEvent = async (id: number) => {
+export const deleteEvent = async (id: number | string) => {
   await axios.delete<Event>(`http://localhost:3002/events/${id}`);
 };
