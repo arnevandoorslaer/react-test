@@ -1,16 +1,18 @@
-import { Form, Modal, Button } from 'antd';
+import { Form, Modal, Button, Alert } from 'antd';
 import FormFieldComponent from './form-field-component';
 import { createOrUpdateEvent, removeEvent } from '../../hooks/useEvent';
 import { FormComponentType } from '../../types/form-component.type';
 import { Event } from '../../types/event.type';
 import { parseMomentArray } from '../../utils/dateParser';
-import React from 'react';
+import React, { useState } from 'react';
 
 function FormComponent({ columns, setVisible, title, okText, cancelText, prefilled, showDelete, openNotification }) {
   const [form] = Form.useForm();
 
   const { mutate: mutateRemove } = removeEvent();
   const { mutate: mutateCreateOrUpdate } = createOrUpdateEvent();
+
+  const [showError, setShowError] = useState(false);
 
   const handleDelete = () => {
     mutateRemove(prefilled.id);
@@ -28,7 +30,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
         setVisible(false);
         form.submit();
       },
-      () => openNotification('Something went wrong...', 'Fields not validated'),
+      () => setShowError(true),
     );
   };
 
@@ -43,6 +45,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
       } else {
         openNotification('Successfully created', values.title);
       }
+      setShowError(false);
     }
   };
 
@@ -51,6 +54,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
   return (
     <Modal title={title} okText={okText} open={true} cancelText={cancelText} onOk={handleOk} onCancel={handleCancel}>
       <Form key={title} form={form} layout='vertical' onFinish={handleSubmit} initialValues={prefilled || undefined} children={fields}></Form>
+      {showError ? <Alert type='error' style={{ bottom: 10 }} message='There are errors in the form. Please correct them before saving.' /> : <></>}
       {showDelete ? (
         <Button key='delete' danger onClick={handleDelete} style={{ top: 35 }}>
           Delete
