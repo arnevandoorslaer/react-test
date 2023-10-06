@@ -52,7 +52,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
   const fields = columns.map((column: FormComponentType) => <FormFieldComponent column={column} key={column.component} />);
 
   return (
-    <Modal title={title} okText={okText} open={true} cancelText={cancelText} onOk={handleOk} onCancel={handleCancel}>
+    <Modal data-testid='modal' title={title} okText={okText} open={true} cancelText={cancelText} onOk={handleOk} onCancel={handleCancel}>
       <Form key={title} form={form} layout='vertical' onFinish={handleSubmit} initialValues={prefilled || undefined} children={fields}></Form>
       {showError ? <Alert type='error' message='There are errors in the form. Please correct them before saving.' /> : <></>}
       {showDelete ? (

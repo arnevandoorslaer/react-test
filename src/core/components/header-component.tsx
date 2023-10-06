@@ -17,7 +17,7 @@ function HeaderComponent() {
           <Search onSearch={setSearch} allowClear placeholder={'Search events'} />
         </Col>
         <Col span={4}>
-          <Button type='primary' style={{ background: 'black', borderRadius: 1 }} onClick={() => setCreateVisible(true)}>
+          <Button data-testid='create-button' type='primary' style={{ background: 'black', borderRadius: 1 }} onClick={() => setCreateVisible(true)}>
             Create event
           </Button>
         </Col>

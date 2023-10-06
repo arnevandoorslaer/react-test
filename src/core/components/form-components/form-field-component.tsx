@@ -8,7 +8,7 @@ function FormFieldComponent({ column }) {
     <Form.Item
       name={column.component === 'range_picker' ? 'dates' : column.name}
       label={column.label}
-      key={column.key}
+      key={column.component}
       rules={[
         {
           required: column.required,
@@ -30,7 +30,7 @@ function getComponent(component: string, column: FormComponentType) {
   switch (component) {
     case 'select':
       input = (
-        <Select>
+        <Select data-testid='select-type'>
           {column.options.map((option) => (
             <Option value={option.value} label={option.label} key={option.label}>
               <>{option.label}</>
@@ -40,13 +40,13 @@ function getComponent(component: string, column: FormComponentType) {
       );
       break;
     case 'range_picker':
-      input = <RangePicker format={'YYYY-MM-DD'} style={{ width: '100%' }} />;
+      input = <RangePicker data-testid='range-picker-date' format={'YYYY-MM-DD'} style={{ width: '100%' }} role='range-picker' />;
       break;
     case 'textarea':
-      input = <Input.TextArea />;
+      input = <Input.TextArea data-testid='text-area-description' />;
       break;
     default:
-      input = <Input />;
+      input = <Input data-testid='input' />;
       break;
   }
   return input;
