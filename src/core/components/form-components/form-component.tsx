@@ -54,7 +54,7 @@ function FormComponent({ columns, setVisible, title, okText, cancelText, prefill
   return (
     <Modal title={title} okText={okText} open={true} cancelText={cancelText} onOk={handleOk} onCancel={handleCancel}>
       <Form key={title} form={form} layout='vertical' onFinish={handleSubmit} initialValues={prefilled || undefined} children={fields}></Form>
-      {showError ? <Alert type='error' style={{ bottom: 10 }} message='There are errors in the form. Please correct them before saving.' /> : <></>}
+      {showError ? <Alert type='error' message='There are errors in the form. Please correct them before saving.' /> : <></>}
       {showDelete ? (
         <Button key='delete' danger onClick={handleDelete} style={{ top: 35 }}>
           Delete
